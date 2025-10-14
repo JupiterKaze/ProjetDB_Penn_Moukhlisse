@@ -58,9 +58,9 @@ CREATE TABLE Consultation(
 
 CREATE TABLE Intervention_chirurgicale(
    ID_intervention_ INT,
-   type_intervention VARCHAR(50),
-   date_intervention DATE,
-   résultat_intervention VARCHAR(50),
+   type_intervention VARCHAR(50) NOT NULL,
+   date_intervention DATE NOT NULL,
+   résultat_intervention VARCHAR(50) NOT NULL,
    compte_rendu_intervention VARCHAR(50),
    ID_médecin INT NOT NULL,
    ID_patient INT NOT NULL,
