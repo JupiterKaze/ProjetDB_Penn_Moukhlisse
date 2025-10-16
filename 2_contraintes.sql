@@ -7,14 +7,6 @@ ALTER TABLE patient
 	ADD CONSTRAINT `pat_email_valide`
     CHECK (`email_patient` = '%@%');
     
-ALTER TABLE patient
-	ADD CONSTRAINT `pat_code_postal_valide`
-    CHECK (`code_postal` = '_____'); -- 5 caractères sinon non valide
-
-ALTER TABLE patient
-	ADD CONSTRAINT `pat_naissance_valide`
-    CHECK (`date_naissance` <= CURDATE());
-    
 -- CONTRAINTES MEDECIN
 ALTER TABLE médecin
 	ADD CONSTRAINT `med_email_valide`
@@ -22,9 +14,9 @@ ALTER TABLE médecin
     
 ALTER TABLE médecin
 	ADD CONSTRAINT `med_spécialité_valide`
-    CHECK (`spécialité` IN ('Cardiologie', 'Chirurgie', 'Pédiatrie', 'Gériatrie', 
-    'Gynécologie', 'Médecine générale', 'Neurologie', 'Psychiatrie', 'Dermatologie',
-    'Oncologie', 'Radiologie', 'Urologue', 'Orthopédie', 'Ophtalmologie', 'Gastro-entérologie'));
+    CHECK (`spécialité` IN ('Pharmacie', 'Biologie médicale', 'Cardiologie', 'Chirurgie', 'Pédiatrie', 'Gériatrie', 
+    'Gynécologie', 'Médecine générale', 'Neurologie', 'Psychiatrie', 'Dermatologie', 'Hématologie', 'ORL', 'Anesthésie',
+    'Oncologie', 'Radiologie', 'Urologue', 'Orthopédie', 'Ophtalmologie', 'Gastro-entérologie', 'Pneumologie'));
     
 -- CONTRAINTES ANALYSE
 ALTER TABLE analyse
@@ -32,7 +24,23 @@ ALTER TABLE analyse
     CHECK (`type_analyse` IN ('Electrocardiogramme', 'Coloscopie', 'Echographie', 'Urinaire',
     'IRM', 'Radiographie', 'Sanguine'));
     
-ALTER TABLE analyse 
-	ADD CONSTRAINT `ana_date_valide`
-    CHECK (`date_analyse` <= CURDATE());
+-- CONTRAINTES ADRESSE
+ALTER TABLE adresse
+	ADD CONSTRAINT `code_postal_valide`
+    CHECK (`code_postal` = '_____'); -- 5 caractères sinon non valide
+
+-- CONTRAINTES HOSPITALISATION
+ALTER TABLE hospitalisation 
+	ADD CONSTRAINT `hos_date_valide`
+    CHECK (`date_sortie` >= `date_entrée`);
+
+-- CONTRAINTES SERVICE MEDICAL
+ALTER TABLE service_médical
+	ADD CONSTRAINT `ser_nom_valide`
+    CHECK (`nom_service` IN ('Pharmacie', 'Biologie médicale', 'Urgences', 'Cardiologie', 'Chirurgie', 'Pédiatrie', 'Gériatrie', 
+    'Gynécologie', 'Médecine générale', 'Neurologie', 'Psychiatrie', 'Dermatologie', 'Hématologie', 'ORL', 'Anesthésie',
+    'Oncologie', 'Radiologie', 'Urologue', 'Orthopédie', 'Ophtalmologie', 'Gastro-entérologie', 'Pneumologie'));
+    
+    
+
     
