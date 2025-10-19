@@ -59,10 +59,12 @@ INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, télépho
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (6, 'Moreau', 'Inès', 'Anesthésie', 699854353, 'ines.moreau@example.com', 3, 3);
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (7, 'Petit', 'Sarah', 'Pneumologie', 647510799, 'sarah.petit@example.com', 1, 2);
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (8, 'Bernard', 'Raphaël', 'Gynécologie', 684251354, 'raphaël.bernard@example.com', 2, 6);
-INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (9, 'Durand', 'Raphaël', 'Psychiatrie', 698084124, 'raphaël.durand@example.com', 1, 6);
+INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (9, 'Durand', 'Raphaël', 'Psychiatrie', 698084124, 'raphaël.durand@example.com', 1, 7);
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (10, 'Bernard', 'Ilyes', 'Orthopédie', 624493534, 'ilyes.bernard@example.com', 4, 3);
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (11, 'Robert', 'Emma', 'Cardiologie', 664005242, 'emma.robert@example.com', 4, 2);
 INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (12, 'Leroy', 'Théo', 'Anesthésie', 680112805, 'theo.leroy@example.com', 2, 3);
+INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (13, 'Legrand', 'Marc', 'Anesthésie', 680187805, 'marc.legrand@example.com', 2, 1);
+INSERT INTO Médecin (ID_médecin, nom_med, prénom_med, spécialité, téléphone_med, email_med, ID_médecin_Chef_de_service, ID_service) VALUES (14, 'Boucher', 'Alice', 'Chirurgie', 680117805, 'alice.boucher@example.com', 4, 3);
 
 -- Consultation
 INSERT INTO Consultation (ID_consultation, date_consultation, motif, compte_rendu_consultation, ID_patient, ID_médecin) VALUES (1, '2024-02-12', 'Maux de tête', 'Examens complémentaires', 7, 3);
@@ -130,7 +132,7 @@ INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (4, '2025-04-17', '2025-04-20', 3, 7);
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (5, '2025-01-23', '2025-01-29', 5, 1);
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (6, '2024-11-30', '2024-12-06', 8, 4);
-INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (7, '2024-10-11', '2024-10-24', 7, 13);
+INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (7, '2024-10-11', '2024-10-24', 1, 13);
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (8, '2024-09-15', '2024-09-29', 7, 14);
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (9, '2024-01-20', '2024-02-01', 8, 2);
 INSERT INTO Hospitalisation (ID_hosp, date_entrée, date_sortie, ID_service, ID_patient) VALUES (10, '2024-12-24', '2024-12-28', 1, 9);

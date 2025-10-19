@@ -5,12 +5,12 @@ ALTER TABLE patient
 
 ALTER TABLE patient
 	ADD CONSTRAINT `pat_email_valide`
-    CHECK (`email_patient` = '%@%');
+    CHECK (`email_patient` LIKE '%@%');
     
 -- CONTRAINTES MEDECIN
 ALTER TABLE médecin
 	ADD CONSTRAINT `med_email_valide`
-    CHECK (`email_med` = '%@%');
+    CHECK (`email_med` LIKE '%@%');
     
 ALTER TABLE médecin
 	ADD CONSTRAINT `med_spécialité_valide`
@@ -27,7 +27,7 @@ ALTER TABLE analyse
 -- CONTRAINTES ADRESSE
 ALTER TABLE adresse
 	ADD CONSTRAINT `code_postal_valide`
-    CHECK (`code_postal` = '_____'); -- 5 caractères sinon non valide
+    CHECK (`code_postal` < 100000 AND `code_postal` >= 0); -- 5 caractères sinon non valide
 
 -- CONTRAINTES HOSPITALISATION
 ALTER TABLE hospitalisation 
