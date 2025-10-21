@@ -4,11 +4,11 @@ FROM médecin
 WHERE spécialité LIKE '%Anésthésie%';
 
 -- Le nombre de patients hôspitalisés par service, trié dans l'ordre décroissant
-SELECT nom_service as Service, count(ID_hosp) as "Nombre d'hôspitalisation"
+SELECT nom_service as Service, count(ID_hosp) as Nombre_hôspitalisations
 FROM service_médical LEFT JOIN hospitalisation
 	USING(ID_service)
 GROUP BY nom_service
-ORDER BY Nombre_hôspitalisation desc;
+ORDER BY Nombre_hôspitalisations desc;
 
 -- Le nombre de diagnostics recensés plus d'une fois pour chaque type de diagnostic, dans l'ordre croissant
 SELECT libellé_diagnostic as Diagnostic, count(libellé_diagnostic) as Nombre
@@ -18,7 +18,7 @@ HAVING count(libellé_diagnostic) > 1
 ORDER BY Nombre desc;
 
 -- Les noms et prénoms des médecins ayant effectué plus de une consultation, dans l'ordre décroissant 
-SELECT nom_med as Nom, prénom_med as Prénom, count(ID_consultation) as "Nombre de consultations"
+SELECT nom_med as Nom, prénom_med as Prénom, count(ID_consultation) as Nombre_consultations
 FROM médecin JOIN consultation
 	USING(ID_médecin)
 GROUP BY Nom, Prénom
@@ -58,7 +58,7 @@ WHERE ID_service NOT IN (
     FROM médecin);
 
 -- Les médecins ayant prescrit le plus d'ordonnance
-SELECT nom_med as Nom, prénom_med as Prénom, count(ID_prescription) as "Nombre de prescriptions"
+SELECT nom_med as Nom, prénom_med as Prénom, count(ID_prescription) as Nombre_prescriptions
 FROM médecin LEFT JOIN prescription
 	USING(ID_médecin)
 GROUP BY Nom, Prénom
@@ -72,10 +72,10 @@ WHERE ID_patient IN (
     FROM intervention_chirurgicale);
     
 -- Les médicaments les plus prescrits dans l'ordre décroissant
-SELECT médicament as Médicament, count(médicament) as "Nombre de prescriptions"
+SELECT médicament as Médicament, count(médicament) as Nombre_prescriptions
 FROM prescription 
 GROUP BY médicament
-ORDER BY "Nombre de prescriptions" desc;
+ORDER BY "Nombre_prescriptions" desc;
 
 -- Nombre d'analyse par patient
 SELECT nom_patient as Nom, prenom_patient as Prénom, count(type_analyse) as "Nombre d'analyse"
@@ -84,10 +84,10 @@ FROM patient JOIN analyse
 GROUP BY Nom, Prénom;
 
 -- Les types d'analyse les plus fréquentes
-SELECT type_analyse as Type, count(type_analyse) as "Nombre réalisés"
+SELECT type_analyse as Type, count(type_analyse) as Nombre_réalisés
 FROM analyse 
 GROUP BY type_analyse
-ORDER BY "Nombre réalisés" desc;
+ORDER BY Nombre_réalisés desc;
 
 -- Les patients n'ayant jamais été hôspitalisés
 SELECT nom_patient as Nom, prenom_patient as Prénom
